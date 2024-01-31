@@ -24,7 +24,7 @@
 <meta property="og:description" content="$$\Large\textbf{图论笔记}\ \large\text{2024&#x2F;01&#x2F;30}$$  应试考试中，图论数据量都是$10^5$量级的，所以用邻接表。数组的定义记住估算一下空间，对数组大小有概念。二维int数组最大开到$5000\times5000$万不得已不要定义在主函数内。规范变量命名。    memsetSTL::memset头文件cstring使用方法mems">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-01-30T10:13:07.000Z">
-<meta property="article:modified_time" content="2024-01-30T10:16:30.782Z">
+<meta property="article:modified_time" content="2024-01-31T11:26:44.739Z">
 <meta property="article:author" content="Taoran">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -264,7 +264,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on January 30, 2024 pm
+                    Last updated on January 31, 2024 pm
                   
                 
               </p>
@@ -303,7 +303,7 @@
 <p>贪心思想<br>因为没有负边，所以已求点最短路不会再变化。<br>两个集合，已求点（白点）和未求点（蓝点）。</p>
 <p>第一步：蓝点中找一个与白点距离最近的。<br>第二步：将这个点变为白点，用这个点更新蓝点距离。<br>$d_x+a_{x,y}$更新$d_y$，$x$为白点，$y$为蓝点。<br>第三步：重复，直到全部变成白点。</p>
 <p>暴力代码</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dijkstra</span><span class="hljs-params">(<span class="hljs-type">int</span> s)</span> </span>&#123;<br>  <span class="hljs-built_in">memset</span>(vis, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(vis));<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i<span class="hljs-number">-1</span>; i&lt;=n; ++i) d[i]=INF;<br>  d[s]=<span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span>（<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; ++i） &#123;<br>    <span class="hljs-type">int</span> x=<span class="hljs-number">-1</span>, mn=INF; <span class="hljs-comment">// x不设置初始值可能会RE</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>; j&lt;=n; ++j) &#123;<br>      <span class="hljs-keyword">if</span> (!vis[j] &amp;&amp; d[j]&lt;mn) mn=d[x=j];<br>    &#125;<br>    <span class="hljs-keyword">if</span> (x==<span class="hljs-number">-1</span>) <span class="hljs-keyword">return</span>; <span class="hljs-comment">// 这一步可选，意味着图是断开的</span><br>    vis[x]=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>; j&lt;=n; ++j) &#123;<br>      <span class="hljs-keyword">if</span> (!vis[j]) d[j]=<span class="hljs-built_in">min</span>(d[j], d[x]+a[x][j]);<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dijkstra</span><span class="hljs-params">(<span class="hljs-type">int</span> s)</span> </span>&#123;<br>	<span class="hljs-built_in">memset</span>(vis, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(vis));<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i<span class="hljs-number">-1</span>; i&lt;=n; ++i) d[i]=INF;<br>	d[s]=<span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span>（<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; ++i） &#123;<br>		<span class="hljs-type">int</span> x=<span class="hljs-number">-1</span>, mn=INF; <span class="hljs-comment">// x不设置初始值可能会RE</span><br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>; j&lt;=n; ++j) &#123;<br>			<span class="hljs-keyword">if</span> (!vis[j] &amp;&amp; d[j]&lt;mn) mn=d[x=j];<br>		&#125;<br>		<span class="hljs-keyword">if</span> (x==<span class="hljs-number">-1</span>) <span class="hljs-keyword">return</span>; <span class="hljs-comment">// 这一步可选，意味着图是断开的</span><br>		vis[x]=<span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>; j&lt;=n; ++j) &#123;<br>			<span class="hljs-keyword">if</span> (!vis[j]) d[j]=<span class="hljs-built_in">min</span>(d[j], d[x]+a[x][j]);<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>还有一种写法，一开始就把起点变成白点，并预处理好起点所连接的边，下一次$1$就不用找了。代码较为麻烦。</p>
 <p>$d_i$也可以维护最大边和最短边。<br>最大边最小：$d_i&#x3D;min(d_i,\ max(d_j,\ a_{j,i}))$<br>最小边最大：$d_i&#x3D;max(d_i,\ min(d_j,\ a_{j,i}))$</p>
 <p><a target="_blank" rel="noopener" href="https://oi-wiki.org/graph/shortest-path/#%E5%AE%9E%E7%8E%B0_2">源码</a></p>
@@ -373,7 +373,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>January 30, 2024</div>
+          <div>January 31, 2024</div>
         </div>
       
       

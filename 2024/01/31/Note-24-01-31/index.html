@@ -16,21 +16,21 @@
   <meta name="author" content="Taoran">
   <meta name="keywords" content="">
   
-    <meta name="description" content="$$\Large\textbf{关于这个网站}$$  啊……也没什么可说的，其实。域名从Aliyun买的，三十几块一年。服务器用的Github的。博客框架Hexo，主题Fluid。 目前比较大的问题有：1.$\LaTeX$换行换不了；2.标题等一换成中文就乱码；3.内容价值意义不大。 想自己搭建的尽早打消想法，需要学的东西很多，需要解决的问题也很多。">
+    <meta name="description" content="$$\Large\textbf{图论笔记}\ \large\text{2024&#x2F;01&#x2F;31}$$  Bellman-Ford时间复杂度$O(m\times n)$。两点之间最短路最多包含所有点。如果一个点出现两次，就走了环，非负环不划算，负环没有最短路。包含$k$条边的最短路可以由最多包含$k-1$条边的最短路加一条边来获得,这个操作是“松弛”。如果某一个点的最短路被更新了，这">
 <meta property="og:type" content="article">
-<meta property="og:title" content="About This Website">
-<meta property="og:url" content="https://algo-x.cn/2024/01/30/About-This-Website/index.html">
+<meta property="og:title" content="Note 24-01-31">
+<meta property="og:url" content="https://algo-x.cn/2024/01/31/Note-24-01-31/index.html">
 <meta property="og:site_name" content="Algo-X.cn">
-<meta property="og:description" content="$$\Large\textbf{关于这个网站}$$  啊……也没什么可说的，其实。域名从Aliyun买的，三十几块一年。服务器用的Github的。博客框架Hexo，主题Fluid。 目前比较大的问题有：1.$\LaTeX$换行换不了；2.标题等一换成中文就乱码；3.内容价值意义不大。 想自己搭建的尽早打消想法，需要学的东西很多，需要解决的问题也很多。">
+<meta property="og:description" content="$$\Large\textbf{图论笔记}\ \large\text{2024&#x2F;01&#x2F;31}$$  Bellman-Ford时间复杂度$O(m\times n)$。两点之间最短路最多包含所有点。如果一个点出现两次，就走了环，非负环不划算，负环没有最短路。包含$k$条边的最短路可以由最多包含$k-1$条边的最短路加一条边来获得,这个操作是“松弛”。如果某一个点的最短路被更新了，这">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-01-30T11:25:20.000Z">
-<meta property="article:modified_time" content="2024-01-30T11:32:45.094Z">
+<meta property="article:published_time" content="2024-01-31T11:21:21.000Z">
+<meta property="article:modified_time" content="2024-01-31T11:32:40.400Z">
 <meta property="article:author" content="Taoran">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>About This Website - Algo-X.cn</title>
+  <title>Note 24-01-31 - Algo-X.cn</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -188,7 +188,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="About This Website"></span>
+            <span id="subtitle" data-typed-text="Note 24-01-31"></span>
           
         </div>
 
@@ -199,8 +199,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-01-30 19:25" pubdate>
-          January 30, 2024 pm
+        <time datetime="2024-01-31 19:21" pubdate>
+          January 31, 2024 pm
         </time>
       </span>
     
@@ -211,7 +211,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          172 words
+          2.3k words
         
       </span>
     
@@ -222,7 +222,7 @@
         
         
         
-          3 mins
+          29 mins
         
       </span>
     
@@ -259,12 +259,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">About This Website</h1>
+            <h1 id="seo-header">Note 24-01-31</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on January 30, 2024 pm
+                    Last updated on January 31, 2024 pm
                   
                 
               </p>
@@ -272,11 +272,20 @@
             
               <div class="markdown-body">
                 
-                <p>$$<br>\Large\textbf{关于这个网站}<br>$$</p>
+                <p>$$<br>\Large\textbf{图论笔记}\ \large\text{2024&#x2F;01&#x2F;31}<br>$$</p>
 <hr>
-<p>啊……也没什么可说的，其实。<br>域名从Aliyun买的，三十几块一年。服务器用的Github的。<br>博客框架Hexo，主题Fluid。</p>
-<p>目前比较大的问题有：<br>1.$\LaTeX$换行换不了；<br>2.标题等一换成中文就乱码；<br>3.内容价值意义不大。</p>
-<p>想自己搭建的尽早打消想法，需要学的东西很多，需要解决的问题也很多。</p>
+<h3 id="Bellman-Ford"><a href="#Bellman-Ford" class="headerlink" title="Bellman-Ford"></a>Bellman-Ford</h3><p>时间复杂度$O(m\times n)$。<br>两点之间最短路最多包含所有点。如果一个点出现两次，就走了环，非负环不划算，负环没有最短路。<br>包含$k$条边的最短路可以由最多包含$k-1$条边的最短路加一条边来获得,这个操作是“松弛”。<br>如果某一个点的最短路被更新了，这个点就有能力更新它所连接的点。<br>当所有边不满足$d_u+w&lt;d_v$时，最短路不会再改变了。每条边进行$n-1$遍“松弛”操作。<br>检查，如果有一条边还能松弛，则有负环。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; ++i) d[i]=INF;<br>d[s]=<span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n<span class="hljs-number">-1</span>; ++i) &#123;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>; j&lt;=m; ++j) &#123;<br>				u=e[j].u, v=e[j].v, w=e[j].w;<br>				<span class="hljs-keyword">if</span> (d[i]&lt;INF) d[v]=<span class="hljs-built_in">min</span>(d[v], d[u]+w); <span class="hljs-comment">//松弛</span><br>		&#125;<br>&#125;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=m; ++i)<br>		<span class="hljs-keyword">if</span> (d[e[i].u]+w&lt;d[e[i].v]) ; <span class="hljs-comment">//存在负环</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="SPFA"><a href="#SPFA" class="headerlink" title="SPFA"></a>SPFA</h3><p>全称Shortest Path Faster Algorithm，于1994年被西安交通大学段凡丁发明。<br>$n\le10^5$，可以有负权，可以判断负环。<br>时间复杂度$O(k\times m)$，$k$一般小于$2$。</p>
+<p>如果一个点没有被改变，再判断能否“松弛”，是没有意义的。只有它被更新了才检查，用这个优化。</p>
+<p>建立一个队列，初始点s，将它所更新的点压入队列，不更新的不管它。做完了弹出，取出下一个点继续更新。当这个队列空了，就意味着没有可以更新的点了，结束。<br>一个点可能多次进入队列，只要被更新就进入队列。每个顶点进入队列不会超过$n$次，如果超过$n$次就意味着存在负环。</p>
+<p>手写队列长度为$10\times n$，也可以用长度为$n+1$的循环队列，也可以用<code>STL::queue</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">spfa</span><span class="hljs-params">(<span class="hljs-type">int</span> s)</span> </span>&#123;<br>	queue&lt;<span class="hljs-type">int</span>&gt; q; <span class="hljs-comment">//队列</span><br>	<span class="hljs-built_in">memset</span>(cnt, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(cnt)); <span class="hljs-comment">//进入队列次数</span><br>	<span class="hljs-built_in">memset</span>(inq, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(inq)); <span class="hljs-comment">//标记是否在队列里面</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; ++i) d[i]=INF; <span class="hljs-comment">//最短路</span><br>	d[s]=<span class="hljs-number">0</span>; <span class="hljs-comment">//起点距离为0</span><br>	cnt[s]=<span class="hljs-number">1</span>; <span class="hljs-comment">//进入队列次数</span><br>	q.<span class="hljs-built_in">push</span>(s); <span class="hljs-comment">//进入队列</span><br>	inq[s]=<span class="hljs-number">1</span>; <span class="hljs-comment">//打标记</span><br>	<span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>		<span class="hljs-type">int</span> u=q.<span class="hljs-built_in">front</span>(); <span class="hljs-comment">//取出点</span><br>		q.<span class="hljs-built_in">pop</span>(); <span class="hljs-comment">//弹出</span><br>		inq[u]=<span class="hljs-number">0</span>; <span class="hljs-comment">//取消标记</span><br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=g[u]; i&gt;<span class="hljs-number">0</span>; i=e[i].next) &#123; <span class="hljs-comment">//遍历所连接的点</span><br>			<span class="hljs-type">int</span> v=e[i].v, w=e[i].w; <span class="hljs-comment">//改名，减少出错</span><br>			<span class="hljs-keyword">if</span> (d[u]+w&lt;d[v]) &#123; <span class="hljs-comment">//可以松弛</span><br>				d[v]=d[u]+w; <span class="hljs-comment">//更新</span><br>				<span class="hljs-keyword">if</span> (!inq[v]) &#123; <span class="hljs-comment">//如果不在队列里面</span><br>					q.<span class="hljs-built_in">push</span>(v); <span class="hljs-comment">//进入队列</span><br>					inq[v]=<span class="hljs-number">1</span>; <span class="hljs-comment">//在队列里，打标记</span><br>					cnt[v]++; <span class="hljs-comment">//进入队列次数+1</span><br>					<span class="hljs-keyword">if</span> (cnt[v]&gt;n) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; <span class="hljs-comment">//存在负环</span><br>				&#125;<br>			&#125;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; <span class="hljs-comment">//没有负环</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>SLF优化：<br>Small Label Fiest策略<br>如果一个点被更新地很短，前面的就会被浪费。<br>如果点$v$被更新，队首为$t$，且$d_v$&lt;$d_t$，就把$v$放在队首。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">spfa</span><span class="hljs-params">(<span class="hljs-type">int</span> s)</span> </span>&#123;<br>	deque&lt;<span class="hljs-type">int</span>&gt; q;  <span class="hljs-comment">//队列</span><br>	<span class="hljs-built_in">memset</span>(cnt, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(s)); <span class="hljs-comment">//进入队列次数</span><br>	<span class="hljs-built_in">memset</span>(inq, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(inq)); <span class="hljs-comment">//标记是否在队列里面</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; ++i) d[i]=INF;  <span class="hljs-comment">//最短路</span><br>	d[s]=<span class="hljs-number">0</span>;  <span class="hljs-comment">//起点距离为0</span><br>	cnt[s]=<span class="hljs-number">1</span>;  <span class="hljs-comment">//进入队列次数</span><br>	q.<span class="hljs-built_in">push_front</span>(s);  <span class="hljs-comment">//进入队列</span><br>	inq[s]=<span class="hljs-number">1</span>;  <span class="hljs-comment">//打标记</span><br>	<span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>		<span class="hljs-type">int</span> u=q.<span class="hljs-built_in">front</span>();  <span class="hljs-comment">//取出点</span><br>		q.<span class="hljs-built_in">pop_front</span>();  <span class="hljs-comment">//弹出</span><br>		inq[u]=<span class="hljs-number">0</span>;  <span class="hljs-comment">//取消标记</span><br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=g[u]; i&gt;<span class="hljs-number">0</span>; i=e[i].next) &#123;  <span class="hljs-comment">//遍历所连接的点</span><br>			<span class="hljs-type">int</span> v=e[i].v, w=e[i].w;  <span class="hljs-comment">//改名，减少出错</span><br>			<span class="hljs-keyword">if</span> (d[u]+w&lt;d[v]) &#123;  <span class="hljs-comment">//可以松弛</span><br>				d[v]=d[u]+w;  <span class="hljs-comment">//更新</span><br>				<span class="hljs-keyword">if</span> (!inq[v]) &#123;  <span class="hljs-comment">//如果不在队列里面</span><br>					<span class="hljs-keyword">if</span> (!q.<span class="hljs-built_in">empty</span>()&amp;&amp;d[v]&lt;=d[q.<span class="hljs-built_in">front</span>()]) q.<span class="hljs-built_in">push_front</span>(v);  <span class="hljs-comment">//如果比队首小，放前面</span><br>					<span class="hljs-keyword">else</span> q.<span class="hljs-built_in">push_back</span>(v);  <span class="hljs-comment">//如果挺大，放后面</span><br>					inq[v]=<span class="hljs-number">1</span>;  <span class="hljs-comment">//在队列里，打标记</span><br>					cnt[v]++;  <span class="hljs-comment">//进入队列次数+1</span><br>					<span class="hljs-keyword">if</span> (cnt[v]&gt;n) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;  <span class="hljs-comment">//存在负环</span><br>				&#125;<br>			&#125;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;  <span class="hljs-comment">//没有负环</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -295,8 +304,15 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Introductions/" class="category-chain-item">Introductions</a>
+  <a href="/categories/Notes-Collations/" class="category-chain-item">Notes &amp; Collations</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/Notes-Collations/Algorithm/" class="category-chain-item">Algorithm</a>
+  
+  
+
   
 
       </span>
@@ -315,8 +331,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>About This Website</div>
-      <div>https://algo-x.cn/2024/01/30/About-This-Website/</div>
+      <div>Note 24-01-31</div>
+      <div>https://algo-x.cn/2024/01/31/Note-24-01-31/</div>
     </div>
     <div class="license-meta">
       
@@ -328,13 +344,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>January 30, 2024</div>
+          <div>January 31, 2024</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>January 30, 2024</div>
+          <div>January 31, 2024</div>
         </div>
       
       
@@ -377,18 +393,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/01/31/Note-24-01-31/" title="Note 24-01-31">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Note 24-01-31</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/01/30/Note-24-01-30/" title="Note 24-01-30">
-                        <span class="hidden-mobile">Note 24-01-30</span>
+                      <a href="/2024/01/30/About-This-Website/" title="About This Website">
+                        <span class="hidden-mobile">About This Website</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
