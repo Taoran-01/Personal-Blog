@@ -16,15 +16,15 @@
   <meta name="author" content="Taoran">
   <meta name="keywords" content="">
   
-    <meta name="description" content="$$\Large\textbf{图论笔记}\ \large\text{2024&#x2F;01&#x2F;31}$$  Bellman-Ford时间复杂度$O(m\times n)$。两点之间最短路最多包含所有点。如果一个点出现两次，就走了环，非负环不划算，负环没有最短路。包含$k$条边的最短路可以由最多包含$k-1$条边的最短路加一条边来获得,这个操作是“松弛”。如果某一个点的最短路被更新了，这">
+    <meta name="description" content="$$\Large\textbf{图论笔记}\ \large\texttt{2024&#x2F;01&#x2F;31}$$  Bellman-Ford时间复杂度$O(m\times n)$。两点之间最短路最多包含所有点。如果一个点出现两次，就走了环，非负环不划算，负环没有最短路。包含$k$条边的最短路可以由最多包含$k-1$条边的最短路加一条边来获得,这个操作是“松弛”。如果某一个点的最短路被更新了">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Note 24-01-31">
 <meta property="og:url" content="https://algo-x.cn/2024/01/31/Note-24-01-31/index.html">
 <meta property="og:site_name" content="Algo-X.cn">
-<meta property="og:description" content="$$\Large\textbf{图论笔记}\ \large\text{2024&#x2F;01&#x2F;31}$$  Bellman-Ford时间复杂度$O(m\times n)$。两点之间最短路最多包含所有点。如果一个点出现两次，就走了环，非负环不划算，负环没有最短路。包含$k$条边的最短路可以由最多包含$k-1$条边的最短路加一条边来获得,这个操作是“松弛”。如果某一个点的最短路被更新了，这">
+<meta property="og:description" content="$$\Large\textbf{图论笔记}\ \large\texttt{2024&#x2F;01&#x2F;31}$$  Bellman-Ford时间复杂度$O(m\times n)$。两点之间最短路最多包含所有点。如果一个点出现两次，就走了环，非负环不划算，负环没有最短路。包含$k$条边的最短路可以由最多包含$k-1$条边的最短路加一条边来获得,这个操作是“松弛”。如果某一个点的最短路被更新了">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-01-31T11:21:21.000Z">
-<meta property="article:modified_time" content="2024-01-31T11:32:40.400Z">
+<meta property="article:modified_time" content="2024-02-05T03:37:43.253Z">
 <meta property="article:author" content="Taoran">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -264,7 +264,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on January 31, 2024 pm
+                    Last updated on February 5, 2024 am
                   
                 
               </p>
@@ -272,7 +272,7 @@
             
               <div class="markdown-body">
                 
-                <p>$$<br>\Large\textbf{图论笔记}\ \large\text{2024&#x2F;01&#x2F;31}<br>$$</p>
+                <p>$$<br>\Large\textbf{图论笔记}\ \large\texttt{2024&#x2F;01&#x2F;31}<br>$$</p>
 <hr>
 <h3 id="Bellman-Ford"><a href="#Bellman-Ford" class="headerlink" title="Bellman-Ford"></a>Bellman-Ford</h3><p>时间复杂度$O(m\times n)$。<br>两点之间最短路最多包含所有点。如果一个点出现两次，就走了环，非负环不划算，负环没有最短路。<br>包含$k$条边的最短路可以由最多包含$k-1$条边的最短路加一条边来获得,这个操作是“松弛”。<br>如果某一个点的最短路被更新了，这个点就有能力更新它所连接的点。<br>当所有边不满足$d_u+w&lt;d_v$时，最短路不会再改变了。每条边进行$n-1$遍“松弛”操作。<br>检查，如果有一条边还能松弛，则有负环。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; ++i) d[i]=INF;<br>d[s]=<span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=n<span class="hljs-number">-1</span>; ++i) &#123;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>; j&lt;=m; ++j) &#123;<br>				u=e[j].u, v=e[j].v, w=e[j].w;<br>				<span class="hljs-keyword">if</span> (d[i]&lt;INF) d[v]=<span class="hljs-built_in">min</span>(d[v], d[u]+w); <span class="hljs-comment">//松弛</span><br>		&#125;<br>&#125;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;=m; ++i)<br>		<span class="hljs-keyword">if</span> (d[e[i].u]+w&lt;d[e[i].v]) ; <span class="hljs-comment">//存在负环</span><br></code></pre></td></tr></table></figure>
@@ -350,7 +350,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>January 31, 2024</div>
+          <div>February 5, 2024</div>
         </div>
       
       
