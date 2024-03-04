@@ -1,10 +1,15 @@
-#include <iostream>
-#include <cstdio>
 #include <cmath>
+#include <ctime>
+#include <cstdio>
+#include <cstdlib>
 #include <cstring>
+#include <iostream>
 #include <algorithm>
 using namespace std;
-typedef long long int ll;
+typedef long long ll;
+
+char buf[1<<20], *p1, *p2;
+#define getchar() (p1==p2&&(p2=(p1=buf)+fread(buf,1,1<<20,stdin),p1==p2)?0:*p1++)
 
 inline ll read() {
 	ll x=0, f=1;
@@ -14,7 +19,7 @@ inline ll read() {
 	return x*f;
 }
 
-int main() {
+signed main() {
 	
 	return 0;
 }
