@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://algo-x.cn/img/05-11.jpg">
 <meta property="og:image" content="https://algo-x.cn/img/05-12.jpg">
 <meta property="article:published_time" content="2023-12-30T02:13:07.000Z">
-<meta property="article:modified_time" content="2024-01-12T16:03:23.240Z">
+<meta property="article:modified_time" content="2024-03-21T15:10:20.906Z">
 <meta property="article:author" content="Taoran">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://algo-x.cn/img/05-01.jpg">
@@ -277,7 +277,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on January 13, 2024 am
+                    Last updated on March 21, 2024 pm
                   
                 
               </p>
@@ -292,7 +292,7 @@
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>如图所示，所有电阻的阻值都等于$R$，求A、B间的等效电阻。<br><img src="../../../../img/05-01.jpg" srcset="/img/loading.gif" lazyload alt="05-01" style="zoom:50%;" /><br>注意：中间没有连接，注意观察圆点。</p>
 <hr>
 <h3 id="思路过程"><a href="#思路过程" class="headerlink" title="思路过程"></a>思路过程</h3><p>特别说明：以下三个思路都是<strong>错的</strong>，请移步<strong>正解</strong>找寻答案，这里只是简单说明思路过程。<br>变量命名不标准，没有按照题目要求，请见谅。</p>
-<h4 id="错误解法1-Dijkstra"><a href="#错误解法1-Dijkstra" class="headerlink" title="错误解法1 - Dijkstra"></a>错误解法1 - Dijkstra</h4><p>思路来自<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/user/958730">Algo_3F</a>。<br><img src="../../../../img/05-02.jpg" srcset="/img/loading.gif" lazyload alt="05-02" style="zoom:25%;" /><br>显然，这个答案小于$R$，因为有电流通过上面的电路中。</p>
+<h4 id="错误解法1-Dijkstra"><a href="#错误解法1-Dijkstra" class="headerlink" title="错误解法1 - Dijkstra"></a>错误解法1 - Dijkstra</h4><p>思路来自<a target="_blank" rel="noopener" href="https://codeforces.com/profile/__Algo_3F__">__Algo_3F__</a>。<br><img src="../../../../img/05-02.jpg" srcset="/img/loading.gif" lazyload alt="05-02" style="zoom:25%;" /><br>显然，这个答案小于$R$，因为有电流通过上面的电路中。</p>
 <h4 id="错误解法2-节点法"><a href="#错误解法2-节点法" class="headerlink" title="错误解法2 - 节点法"></a>错误解法2 - 节点法</h4><p>首先，我先用节点法尝试了一下。<br>标记电势，考虑到已经有了A、B，使用小写字母代替，电势由高到低分别标记为$a\rightarrow b\rightarrow c\rightarrow d$。<br><img src="../../../../img/05-03.jpg" srcset="/img/loading.gif" lazyload alt="05-03" style="zoom:50%;" /><br>不难发现，此时电路变为了三段并联。其中，$a\rightarrow d$先并联了一个单独的电阻，然后$a\rightarrow b$中有两个电阻，$b\rightarrow c$中有三个电阻，$c\rightarrow d$中有两个电阻。<br>那答案就迎刃而解了，ab段电阻$\frac{1}{2}R$，bc段电阻$\frac{1}{3}R$，cd段电阻$\frac{1}{2}R$，ad两个支路分别为$\frac{4}{3}R$和$R$，并起来一共$\frac{4}{7}R$。<br>显然，这道题不是这么简单的。注意看，在刚才的过程中，我们将所有连接b、c两个电势的都视作了并联，但事实上在中间交叉的电阻中，中间交点并不与其他等电势的地方相接。倒回去，如果按照这个思路，电路图应该如下图所示，其中颜色与上图对应。<br><img src="../../../../img/05-04.jpg" srcset="/img/loading.gif" lazyload alt="05-04" style="zoom:50%;" /><br>我们无法证明这种方法的正确性，因为这种方法多连了两根导线，把电阻扯到一边去了，相当于分摊了电流。因此这个答案不一定是正确的。经过后续计算得知，这种方法是错误的。</p>
 <h4 id="错误解法3-对称性"><a href="#错误解法3-对称性" class="headerlink" title="错误解法3 - 对称性"></a>错误解法3 - 对称性</h4><p>接下来尝试化简电路，化简结果如下，其中最中间奇怪方式连接的电阻是原图中最上面的与AB平行的电阻。<br><img src="../../../../img/05-05.jpg" srcset="/img/loading.gif" lazyload alt="05-05" style="zoom:75%;" /><br>然后就没有然后了，接下来问的硕硕才知道解法。<br>显然，最上面的电阻是并联进去的，所以先不考虑，先把下面复杂的单独拆出来。根据对称性，上下两个支路电流相等，所以设总电流为$I$，则每条支路的电流都为$\frac{I}{2}$，如图所示。<br><img src="../../../../img/05-06.jpg" srcset="/img/loading.gif" lazyload alt="05-06" style="zoom:75%;" /><br>因为每个电阻是相等的，设每个电阻为$r$，总电阻为$R$。设总电压为$U$，根据对称性设左上和右下电阻为$r$，则左下右上电阻为$2r$，因为电流相等，电阻为二倍，所以电压为二倍。<br>这样列出等量关系式$U&#x3D;3u$，$r&#x3D;\frac{u}{\frac{I}{2}}&#x3D;\frac{2u}{I}$，$R&#x3D;\frac{U}{I}&#x3D;\frac{3u}{I}&#x3D;\frac{3}{2}\times\frac{2u}{I}&#x3D;\frac{3}{2}r$<br>所以这段电路的总电阻是单个电阻的$\frac{3}{2}$倍，和之前单拎的电阻并联起来就是$\frac{1}{\frac{2}{3r}+\frac{1}{r}}&#x3D;\frac{3}{5}r$<br>就这么结束了，我和硕硕都觉得这是个完美的解法。然而我们忽略了一个关键点：没考虑中间电阻，即没考虑标蓝的电流。这个电流的加入会导致左上、右下电流增加，导致电压不为二倍。<br><img src="../../../../img/05-07.jpg" srcset="/img/loading.gif" lazyload alt="05-07" style="zoom:25%;" /></p>
 <h4 id="错误解法4-等电流"><a href="#错误解法4-等电流" class="headerlink" title="错误解法4 - 等电流"></a>错误解法4 - 等电流</h4><p>按照分电流的思路继续往前走，我们发现在这个复杂电路中共有三条电流，如图是这三条电流分别途径的电路。<br><img src="../../../../img/05-08.jpg" srcset="/img/loading.gif" lazyload alt="05-08" style="zoom:50%;" /><br><img src="../../../../img/05-09.jpg" srcset="/img/loading.gif" lazyload alt="05-09" style="zoom:50%;" /><br><img src="../../../../img/05-10.jpg" srcset="/img/loading.gif" lazyload alt="05-10" style="zoom:50%;" /><br>不难看出，这三条电路的电阻相等，电压相等都等于电源电压，所以电流也相等，相当于三个等流并联，得到这部分电阻为$R$，再并上单个的电阻，总电阻为$\frac{1}{2}R$。<br>很简单，很直接，但这个思路是错的。硕硕说欧姆定律的应用条件是闭合电路，但这个电路不闭合，所以不能推出等流这一结论。</p>
@@ -370,7 +370,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>January 13, 2024</div>
+          <div>March 21, 2024</div>
         </div>
       
       
