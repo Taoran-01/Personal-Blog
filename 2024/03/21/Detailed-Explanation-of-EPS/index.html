@@ -16,16 +16,16 @@
   <meta name="author" content="Taoran">
   <meta name="keywords" content="">
   
-    <meta name="description" content="$$\large\texttt{eps}\Large\textbf{详解}$$  写在前面不会用$eps$请不要担心，这是高阶算法内容。就算没有判或判错了很大可能只影响算法复杂度，最多多跑一层，无需担心。但是某些特定情况下需要特别关注$eps$，不过这是极少数情况。  引言Taoran第一次见到$eps$是在李超树模板里。 1234567891011121314151617181920212223">
+    <meta name="description" content="$$\large\texttt{eps}\Large\textbf{详解}$$  写在前面不会用$eps$请不要担心，这是高阶算法内容。就算没有判或判错了很大可能只影响算法复杂度，最多多跑一层，无需担心。但是某些特定情况下需要特别关注$eps$，不过这是极少数情况。 这篇文章很长，如果只是想了解一下$eps$，不追求理解原理，请前往解决方案一节，或在洛谷剪贴板中查看。  引言Taoran第一次见到">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Detailed Explanation of EPS">
 <meta property="og:url" content="https://algo-x.cn/2024/03/21/Detailed-Explanation-of-EPS/index.html">
 <meta property="og:site_name" content="Algo-X.cn">
-<meta property="og:description" content="$$\large\texttt{eps}\Large\textbf{详解}$$  写在前面不会用$eps$请不要担心，这是高阶算法内容。就算没有判或判错了很大可能只影响算法复杂度，最多多跑一层，无需担心。但是某些特定情况下需要特别关注$eps$，不过这是极少数情况。  引言Taoran第一次见到$eps$是在李超树模板里。 1234567891011121314151617181920212223">
+<meta property="og:description" content="$$\large\texttt{eps}\Large\textbf{详解}$$  写在前面不会用$eps$请不要担心，这是高阶算法内容。就算没有判或判错了很大可能只影响算法复杂度，最多多跑一层，无需担心。但是某些特定情况下需要特别关注$eps$，不过这是极少数情况。 这篇文章很长，如果只是想了解一下$eps$，不追求理解原理，请前往解决方案一节，或在洛谷剪贴板中查看。  引言Taoran第一次见到">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://algo-x.cn/img/19-01.jpg">
 <meta property="article:published_time" content="2024-03-21T13:39:15.000Z">
-<meta property="article:modified_time" content="2024-03-21T14:41:48.149Z">
+<meta property="article:modified_time" content="2024-03-22T14:45:21.358Z">
 <meta property="article:author" content="Taoran">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://algo-x.cn/img/19-01.jpg">
@@ -224,7 +224,7 @@
         
         
         
-          49 mins
+          50 mins
         
       </span>
     
@@ -266,7 +266,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on March 21, 2024 pm
+                    Last updated on March 22, 2024 pm
                   
                 
               </p>
@@ -277,6 +277,7 @@
                 <p>$$<br>\large\texttt{eps}\Large\textbf{详解}<br>$$</p>
 <hr>
 <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>不会用$eps$请不要担心，这是高阶算法内容。<br>就算没有判或判错了很大可能只影响算法复杂度，最多多跑一层，无需担心。<br>但是某些特定情况下需要特别关注$eps$，不过这是极少数情况。</p>
+<p>这篇文章很长，如果只是想了解一下$eps$，不追求理解原理，请前往<a href="../../../../2024/03/21/Detailed-Explanation-of-EPS/#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">解决方案</a>一节，或在<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/paste/ox2b3zgd">洛谷剪贴板</a>中查看。</p>
 <hr>
 <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>Taoran第一次见到$eps$是在李超树模板里。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">define</span> N 100010</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> eps 1e-8</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> LS (p&lt;&lt;1)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> RS ((p&lt;&lt;1)+1)</span><br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">line</span> &#123;<br>	<span class="hljs-type">double</span> k, b;<br>	<span class="hljs-type">int</span> id;<br>	<span class="hljs-built_in">line</span>() &#123;&#125;<br>	<span class="hljs-built_in">line</span>(<span class="hljs-type">double</span> x0, <span class="hljs-type">double</span> y0, <span class="hljs-type">double</span> x1, <span class="hljs-type">double</span> y1, <span class="hljs-type">int</span> _id) &#123;<br>		id=_id;<br>		<span class="hljs-keyword">if</span> (<span class="hljs-built_in">abs</span>(x1-x0)&lt;eps) k=<span class="hljs-number">0</span>, b=<span class="hljs-built_in">max</span>(y0, y1);<br>		<span class="hljs-keyword">else</span> k=(y1-y0)/(x1-x0), b=y0-k*x0;<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">val</span><span class="hljs-params">(<span class="hljs-type">double</span> x)</span> </span>&#123;<span class="hljs-keyword">return</span> k*x+b;&#125;<br>&#125; t[N&lt;&lt;<span class="hljs-number">2</span>];<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> pl, <span class="hljs-type">int</span> pr, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, line y)</span> </span>&#123;<br>	<span class="hljs-type">int</span> mid=(pl+pr)&gt;&gt;<span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">if</span> (l&lt;=pl&amp;&amp;pr&lt;=r) &#123;<br>		<span class="hljs-keyword">if</span> (t[p].id==<span class="hljs-number">0</span>) &#123;t[p]=y; <span class="hljs-keyword">return</span>;&#125;<br>		<span class="hljs-keyword">if</span> (<span class="hljs-built_in">abs</span>(t[p].<span class="hljs-built_in">val</span>(mid)-y.<span class="hljs-built_in">val</span>(mid))&lt;eps) &#123;<br>			<span class="hljs-keyword">if</span> (t[p].id&gt;y.id) <span class="hljs-built_in">swap</span>(t[p], y);<br>		&#125;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (t[p].<span class="hljs-built_in">val</span>(mid)&lt;y.<span class="hljs-built_in">val</span>(mid)) <span class="hljs-built_in">swap</span>(t[p], y);<br>		<span class="hljs-keyword">if</span> (t[p].<span class="hljs-built_in">val</span>(pl)&lt;y.<span class="hljs-built_in">val</span>(pl)+eps) <span class="hljs-built_in">insert</span>(LS, pl, mid, l, r, y);<br>		<span class="hljs-keyword">if</span> (t[p].<span class="hljs-built_in">val</span>(pr)&lt;y.<span class="hljs-built_in">val</span>(pr)+eps) <span class="hljs-built_in">insert</span>(RS, mid+<span class="hljs-number">1</span>, pr, l, r, y);<br>		<span class="hljs-keyword">return</span>;<br>	&#125;<br>	<span class="hljs-keyword">if</span> (l&lt;=mid) <span class="hljs-built_in">insert</span>(LS, pl, mid, l, r, y);<br>	<span class="hljs-keyword">if</span> (r&gt;=mid+<span class="hljs-number">1</span>) <span class="hljs-built_in">insert</span>(RS, mid+<span class="hljs-number">1</span>, pr, l, r, y);<br>&#125;<br><br><span class="hljs-function">line <span class="hljs-title">ask</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> pl, <span class="hljs-type">int</span> pr, <span class="hljs-type">int</span> x)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (pl==pr) <span class="hljs-keyword">return</span> t[p];<br>	<span class="hljs-type">int</span> mid=(pl+pr)&gt;&gt;<span class="hljs-number">1</span>;<br>	line res;<br>	<span class="hljs-keyword">if</span> (x&lt;=mid) res=<span class="hljs-built_in">ask</span>(LS, pl, mid, x);<br>	<span class="hljs-keyword">else</span> res=<span class="hljs-built_in">ask</span>(RS, mid+<span class="hljs-number">1</span>, pr, x);<br>	<span class="hljs-keyword">if</span> (<span class="hljs-built_in">abs</span>(res.<span class="hljs-built_in">val</span>(x)-t[p].<span class="hljs-built_in">val</span>(x))&lt;eps) &#123;<br>		<span class="hljs-keyword">if</span> (res.id&lt;t[p].id) <span class="hljs-keyword">return</span> res;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> t[p];<br>	&#125; <span class="hljs-keyword">else</span> &#123;<br>		<span class="hljs-keyword">if</span> (res.<span class="hljs-built_in">val</span>(x)&gt;t[p].<span class="hljs-built_in">val</span>(x)) <span class="hljs-keyword">return</span> res;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> t[p];<br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
@@ -373,7 +374,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>March 21, 2024</div>
+          <div>March 22, 2024</div>
         </div>
       
       
@@ -415,6 +416,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/03/24/Divide-and-Conquer-on-Trees/" title="Divide and Conquer on Trees">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Divide and Conquer on Trees</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
